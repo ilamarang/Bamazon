@@ -1,25 +1,8 @@
 exports.sqlQuery = {
 selectAllProducts: 'SELECT * FROM products',
 
-CustomerQuestion: [{
-    name: 'itemAnswer',
-    message: 'Enter the artist Name',
-    type: 'input'
-  }],
-itemPrice: [{
-    name: 'titlePrice',
-    message: 'Enter Item Price',
-    type: 'input'
-  }],
-startRange: [{
-      name: 'startRange',
-      message: 'Enter your start Range',
-      type: 'input'
-    }],
-endRange: [{
-          name: 'endRange',
-          message: 'Enter your last Range',
-          type: 'input'
-        }]
+searchProductByName: 'SELECT * FROM products WHERE LOWER(product_name) LIKE  ?',
+
+purchaseItem: 'UPDATE products SET stock_quantity = ? WHERE item_id = ?',
 
 }

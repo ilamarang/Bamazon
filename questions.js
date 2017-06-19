@@ -1,12 +1,20 @@
 exports.prompt = {
-initialQuestions: [{
-    name: 'dbStartQuestions',
-    message: 'Please select an option to start using this App',
-    type: 'list',
-    choices: ['1. Search By Artist', '2. All Artists > 2', '3. Search By Range', '4. Display all Items'
-    ]
-}],
-
+purchaseProductQuestion: [{
+    name: 'requestedItem',
+    message: 'Please enter the Product Name you wish to Purchase',
+    type: 'input'
+    }],
+purchaseQuantityQuestion: [{
+        name: 'requestedNumber',
+        message: 'Please enter the count of the items you wish to Purchase',
+        type: 'input'
+        }],
+inquirePurchaseQuestion: [{
+                name: 'inquirePurchaseAnswer',
+                message: 'Do you want to Purchase Items ?',
+                type: 'list',
+                choices: ['Yes','No']
+                }],
 CustomerQuestion: [{
     name: 'itemAnswer',
     message: 'Enter the artist Name',
