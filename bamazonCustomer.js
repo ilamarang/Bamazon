@@ -57,7 +57,7 @@ var manageSelectionMenu = function() {
         displayLowInventory();
         break;
       case '3. Add to Inventory':
-
+        addInventory();
         break;
       case '4. Add New Product':
 
@@ -112,6 +112,47 @@ var displayAllProducts = function(userProfile) {
 
 }
 
+//Add Inventory
+var addInventory = function() {
+
+  inquirer.prompt(questions.prompt.addInventoryProductQuestion).then(function(itemAnswer) {
+      inquirer.prompt(questions.prompt.addInventoryQuantityQuestion).then(function(quantityAnswer) {
+          connection.query(query.sqlQuery.searchProductById,[parseInt(itemAnswer.requestedProduct)], function(selectQueryError, results, fields) {
+              if (selectQueryError) throw selectQueryError;
+              if(results.length === 1)
+              {
+                var dbStockQuantity = 0;
+                var dbItemId = 0;
+                var dbPrice = 0;
+                var dbProductName = '';
+                results.forEach(function(row, index) {
+                    dbStockQuantity = row.stock_quantity;
+                    dbItemId = row.item_id;
+                    dbPrice = row.price;
+                    dbProductName = row.product_name;
+                })
+                //Update Products Inventory
+                connection.query(query.sqlQuery.updateItem, [parseInt(dbStockQuantity) + parseInt(quantityAnswer.requestedNumber), dbItemId], function(selectQueryError, results, fields) {
+                console.log("Stock Updated Successfully");
+                displayAllProducts('manager');
+
+                })
+
+              } else //No match Found
+              if (results.length === 0)
+              {
+                console.log(colors.red('\u2717' + ' No results matched your criteria - Please enter a valid Product name'));
+                manageSelectionMenu();
+              }
+
+
+          })
+
+      })
+
+  })
+}
+
 var requestForPurchase = function() {
     inquirer.prompt(questions.prompt.inquirePurchaseQuestion).then(function(userResponse) {
         if (userResponse.inquirePurchaseAnswer.toLowerCase() == 'yes' || userResponse.inquirePurchaseAnswer.toLowerCase() == 'y') {
@@ -154,7 +195,7 @@ var purchaseProducts = function() {
                   })
                   if (dbStockQuantity >= quantityAnswer.requestedNumber) {
                           //Update Products Inventory
-                          connection.query(query.sqlQuery.purchaseItem, [dbStockQuantity - quantityAnswer.requestedNumber, dbItemId], function(selectQueryError, results, fields) {
+                          connection.query(query.sqlQuery.updateItem, [dbStockQuantity - quantityAnswer.requestedNumber, dbItemId], function(selectQueryError, results, fields) {
                           console.log("Items Successfully Purchased");
                           printReceipt(dbProductName,dbPrice,quantityAnswer.requestedNumber,dbItemId);
                           displayAllProducts();
