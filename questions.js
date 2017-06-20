@@ -1,4 +1,16 @@
 exports.prompt = {
+chooseProfileQuestion: [{
+                  name: 'chooseProfileAnswer',
+                  message: 'Please select the profile you want to Choose',
+                  type: 'list',
+                  choices: ['Customer','Manager']
+                  }],
+managerProfileQuestion: [{
+                  name: 'managerProfileAnswer',
+                  message: 'Please select an option',
+                  type: 'list',
+                  choices: ['1. View Products for Sale','2. View Low Inventory', '3. Add to Inventory','4. Add New Product','5. Quit Application']
+                    }],
 purchaseProductQuestion: [{
     name: 'requestedItem',
     message: 'Please enter the Product Name you wish to Purchase',

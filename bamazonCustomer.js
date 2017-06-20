@@ -1,3 +1,4 @@
+//Import all the external packages and javascript required to run the application
 var mysql = require('mysql');
 var Table = require('cli-table');
 var inquirer = require('inquirer');
@@ -6,6 +7,13 @@ var query = require('./query.js');
 var tableDisplayDefinition = require('./tableHeaders.js');
 var colors = require('colors/safe');
 
+//Define Global Variables
+var table = new Table({
+    head: tableDisplayDefinition.headers.fullTable.fullTableColumns,
+    colWidths: tableDisplayDefinition.headers.fullTable.fullTableWidth
+});
+
+//Create a connection String
 var connection = mysql.createConnection({
     host: 'localhost',
     port: 3306,
@@ -18,30 +26,88 @@ var connection = mysql.createConnection({
 //Connect to the database
 connection.connect(function(err) {
     if (err) throw err
-    displayAllProducts();
+      chooseProfile();
     //connection.end();
 })
 
+var chooseProfile = function() {
+  inquirer.prompt(questions.prompt.chooseProfileQuestion).then(function(userResponse) {
+    switch (userResponse.chooseProfileAnswer){
+      case 'Customer':
+        displayAllProducts('customer');
+        break;
+      case 'Manager':
+        manageSelectionMenu();
+        break;
+      default:
+    }
+
+
+  })
+
+}
+
+var manageSelectionMenu = function() {
+  inquirer.prompt(questions.prompt.managerProfileQuestion).then(function(userResponse) {
+    switch (userResponse.managerProfileAnswer){
+      case '1. View Products for Sale':
+        displayAllProducts('manager');
+        break;
+      case '2. View Low Inventory':
+        displayLowInventory();
+        break;
+      case '3. Add to Inventory':
+
+        break;
+      case '4. Add New Product':
+
+        break;
+      default:
+        connection.end();
+    }
+
+
+  })
+
+}
+var pushTableData = function(results,table) {
+  results.forEach(function(row, index) {
+      var displayArray = new Array(5);
+      displayArray[0] = row.item_id,
+          displayArray[1] = row.product_name,
+          displayArray[2] = row.department_name,
+          displayArray[3] = row.price,
+          displayArray[4] = row.stock_quantity
+      table.push(displayArray);
+  })
+}
+
+var displayLowInventory = function() {
+  connection.query(query.sqlQuery.lowInventoryList, function(selectQueryError, results, fields) {
+      if (selectQueryError) throw selectQueryError;
+
+      pushTableData(results,table);
+      console.log(table.toString());
+      //Call the recursive function.
+      manageSelectionMenu();
+  })
+
+}
 //Display all Products in inventory
-var displayAllProducts = function() {
+var displayAllProducts = function(userProfile) {
 
     connection.query(query.sqlQuery.selectAllProducts, function(selectQueryError, results, fields) {
         if (selectQueryError) throw selectQueryError;
-        var table = new Table({
-            head: tableDisplayDefinition.headers.fullTable.fullTableColumns,
-            colWidths: tableDisplayDefinition.headers.fullTable.fullTableWidth
-        });
-        results.forEach(function(row, index) {
-            var displayArray = new Array(5);
-            displayArray[0] = row.item_id,
-                displayArray[1] = row.product_name,
-                displayArray[2] = row.department_name,
-                displayArray[3] = row.price,
-                displayArray[4] = row.stock_quantity
-            table.push(displayArray);
-        })
+
+        pushTableData(results,table);
         console.log(table.toString());
-        requestForPurchase();
+        //Determine the recursive function based on who caller.
+        if(userProfile==='customer') {
+            requestForPurchase();
+        } else if(userProfile ==='manager') {
+            manageSelectionMenu();
+        }
+
     })
 
 }
@@ -56,7 +122,7 @@ var requestForPurchase = function() {
     })
 
 }
-
+//Generate Receipt Functionality
 var printReceipt = function(productName,productPrice,productQuantity,productId) {
 console.log('-----------------------------------------------------------');
 console.log('               BAMAZON   RECEIPT                    ');
