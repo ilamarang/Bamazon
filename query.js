@@ -9,4 +9,6 @@ lowInventoryList: 'SELECT * FROM products WHERE stock_quantity <=100',
 
 searchProductById: 'SELECT * FROM products WHERE item_id =  ?',
 
+addNewProduct: 'INSERT INTO products (product_name,department_name,price,stock_quantity) VALUES (?,?,?,?)',
+
 }
