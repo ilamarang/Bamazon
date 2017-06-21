@@ -28,9 +28,9 @@ Following steps will help to get this project up and running in your local syste
 1. Install Node in your system using the link given below 
 https://coderwall.com/p/mhd6nw/install-node-js-on-mac-os-x-and-windows
 2. To install the application, first clone this repository:
-    git clone https://github.com/ilamarang/Bamazon.git
+    `git clone https://github.com/ilamarang/Bamazon.git`
 3. Change your current directory to Bamazon and run the following command
-  	npm install
+  	`npm install`
                
 ## Setting up MySQL
 1. Install MySQL in your system using the link given below
