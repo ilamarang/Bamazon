@@ -10,6 +10,24 @@ https://github.com/ilamarang/Bamazon.git
 3. Change your current directory to Bamazon and run the following command
 npm install
 
-##Setting up MySQL
+## Setting up MySQL
 1. Install MySQL in your system using the link given below
 https://dev.mysql.com/downloads/installer/
+2. Once you have verified that the SQL server is running, create tables given in steps 3 and 4 below
+3. `create table Bamazon.departments(
+department_id integer(10) auto_increment not null,
+department_name varchar(50) not null , 
+over_head_costs  decimal (10,2) not null, 
+total_sales decimal(12,2) not null,
+PRIMARY KEY (department_id)
+);`
+
+4. `create table Bamazon.products(
+item_id integer(10) auto_increment not null,
+product_name varchar(100) not null,
+department_name varchar(50) not null , 
+price  decimal (10,2) not null, 
+stock_quantity integer(4) not null,
+product_sales decimal(12,2),
+PRIMARY KEY (item_id)
+);`
