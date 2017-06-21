@@ -5,6 +5,8 @@ searchProductByName: 'SELECT * FROM products WHERE LOWER(product_name) LIKE  ?',
 
 updateItem: 'UPDATE products SET stock_quantity = ?, product_sales = ? WHERE item_id = ?',
 
+addInventory: 'UPDATE products SET stock_quantity = ? WHERE item_id = ?',
+
 updateDepartmentSales: 'UPDATE departments SET total_sales = total_sales + ? WHERE LOWER(department_name) = ?',
 
 lowInventoryList: 'SELECT * FROM products WHERE stock_quantity <=100',
