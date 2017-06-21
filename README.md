@@ -1,6 +1,20 @@
 # Bamazon
 A CLI based application using Node.js and MySQL integration to simulate Amazon like shopping experience.
 
+* Writing code for the NodeJS environment.
+* Use of the following NodeJS modules - 
+ * inquirer - <https://www.npmjs.com/package/inquirer>
+ * MySQL - <https://www.npmjs.com/package/mysql>
+ * fs
+ * cli-table - <https://www.npmjs.com/package/cli-table>
+ * colors - <https://www.npmjs.com/package/colors>
+* Javascript - 
+ * classes
+ * call backs
+ * recursion
+
+
+
 ## Setting up Node
 Following steps will help to get this project up and running in your local system
 1. Install Node in your system using the link given below 
