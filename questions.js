@@ -37,26 +37,11 @@ addInventoryQuantityQuestion: [{
                               message: 'Please enter the count to items to be added to existing Stock',
                               type: 'input'
                               }],
-addNewProductQuestion: [{
-name: 'addNewProductAnswer',
-message: 'Please enter the Product Name',
-type: 'input'
-}],
-addPriceQuestion: [{
-name: 'addNewPriceAnswer',
-message: 'Please enter the price of the Product',
-type: 'input'
-}],
-addDepartmentQuestion: [{
-name: 'addNewDepartmentAnswer',
-message: 'Please enter the Department Name',
-type: 'input'
-}],
-
-addStockQuestion: [{
-name: 'addNewStockAnswer',
-message: 'Please enter the initial Stock amount',
-type: 'input'
+supervisorProfileQuestion: [{
+name: 'supervisorProfileAnswer',
+message: 'Please choose an Option',
+type: 'list',
+choices: ['1. View Product Sales by Department','2. Create New Department','3. Quit Application']
 }]
 
 
@@ -83,9 +68,19 @@ type: 'input'
 name: 'addNewStockAnswer',
 message: 'Please enter the initial Stock amount',
 type: 'input'
+}]
+
+exports.supervisorPrompt =
+[
+  {
+  name: 'addNewDepartmentName',
+  message: 'Please enter the Department Name',
+  type: 'input'
+},
+{
+name: 'addNewOverheadCosts',
+message: 'Please enter the Overhead Costs',
+type: 'input'
 }
-
-
-
 
 ]

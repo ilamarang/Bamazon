@@ -94,17 +94,25 @@ var purchaseProducts = function() {
                   var dbItemId = 0;
                   var dbPrice = 0;
                   var dbProductName = '';
+                  var dbDepartmentName = '';
                   results.forEach(function(row, index) {
                       dbStockQuantity = row.stock_quantity;
                       dbItemId = row.item_id;
                       dbPrice = row.price;
                       dbProductName = row.product_name;
+                      dbDepartmentName = row.department_name;
                   })
                   if (dbStockQuantity >= quantityAnswer.requestedNumber) {
                           //Update Products Inventory
-                          connection.query(query.sqlQuery.updateItem, [dbStockQuantity - quantityAnswer.requestedNumber, dbItemId], function(selectQueryError, results, fields) {
+                          connection.query(query.sqlQuery.updateItem, [dbStockQuantity - quantityAnswer.requestedNumber,parseFloat(quantityAnswer.requestedNumber * dbPrice), dbItemId], function(updateQueryError, results, fields) {
+                          if (updateQueryError) throw updateQueryError;
                           console.log("Items Successfully Purchased");
                           printReceipt(dbProductName,dbPrice,quantityAnswer.requestedNumber,dbItemId);
+
+                          //Update Department Table
+                          connection.query(query.sqlQuery.updateDepartmentSales, [parseFloat(quantityAnswer.requestedNumber * dbPrice), dbDepartmentName.toLowerCase()], function(departmentInsertQueryError, results, fields) {
+                            if (departmentInsertQueryError) throw departmentInsertQueryError;
+                          })
                           displayAllProducts();
                       })
                   } else {
