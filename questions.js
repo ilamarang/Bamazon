@@ -62,7 +62,14 @@ type: 'input'
 {
 name: 'addNewPriceAnswer',
 message: 'Please enter the price of the Product',
-type: 'input'
+type: 'input',
+validate: function(value){
+  if(isNaN(value)){
+    console.log('  Please enter a valid number');
+  } else {
+    return 'Please enter the price of the Product';
+  }
+}
 },
 {
 name: 'addNewStockAnswer',
