@@ -57,7 +57,35 @@ addStockQuestion: [{
 name: 'addNewStockAnswer',
 message: 'Please enter the initial Stock amount',
 type: 'input'
-}],
+}]
 
 
 }
+
+exports.ManagerPrompt =
+[
+  {
+  name: 'addNewProductAnswer',
+  message: 'Please enter the Product Name',
+  type: 'input'
+},
+{
+name: 'addNewDepartmentAnswer',
+message: 'Please enter the Department Name',
+type: 'input'
+},
+{
+name: 'addNewPriceAnswer',
+message: 'Please enter the price of the Product',
+type: 'input'
+},
+{
+name: 'addNewStockAnswer',
+message: 'Please enter the initial Stock amount',
+type: 'input'
+}
+
+
+
+
+]

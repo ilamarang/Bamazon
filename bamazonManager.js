@@ -51,25 +51,15 @@ var manageSelectionMenu = function() {
 }
 
 var addNewProduct = function() {
-  inquirer.prompt(questions.prompt.addNewProductQuestion).then(function(newProductAnswer) {
-    inquirer.prompt(questions.prompt.addPriceQuestion).then(function(newPriceAnswer) {
-      inquirer.prompt(questions.prompt.addDepartmentQuestion).then(function(newDepartmentAnswer) {
-        inquirer.prompt(questions.prompt.addStockQuestion).then(function(newStockAnswer) {
+  inquirer.prompt(questions.ManagerPrompt).then(function(userResponse) {
           //Add Product Inventory
-          //Update Products Inventory
-          connection.query(query.sqlQuery.addNewProduct,[newProductAnswer.addNewProductAnswer,newDepartmentAnswer.addNewDepartmentAnswer,parseFloat(newPriceAnswer.addNewPriceAnswer),newStockAnswer.addNewStockAnswer], function(selectQueryError, results, fields) {
+
+        connection.query(query.sqlQuery.addNewProduct,[userResponse.addNewProductAnswer,userResponse.addNewDepartmentAnswer,parseFloat(userResponse.addNewPriceAnswer),userResponse.addNewStockAnswer], function(selectQueryError, results, fields) {
         if (selectQueryError) throw selectQueryError;
 
        console.log("Stock Updated Successfully");
           displayAllProducts();
 
-
-    })
-
-
-        })
-
-      })
 
     })
 
