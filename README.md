@@ -13,8 +13,16 @@ A CLI based application using Node.js and MySQL integration to simulate Amazon l
  * call backs
  * recursion
 
-
-
+# Table of Contents
+* [Usage](#usage)
+  * [Setting up Node](#setting-up-node)
+  * [Setting up MySQL](#setting-up-mysql)
+  * [Insall the Application](#install-the-application)
+* [Running the application](#running-the-application)
+  * [Customer View](#customer-view)
+  * [Manager View](#manager-view)
+  * [Supervisor View](#supervisor-view)
+  
 ## Setting up Node
 Following steps will help to get this project up and running in your local system
 1. Install Node in your system using the link given below 
@@ -45,3 +53,12 @@ stock_quantity integer(4) not null,
 product_sales decimal(12,2),
 PRIMARY KEY (item_id)
 );`
+
+
+# Running the Application
+
+# Customer View
+
+# Manager View
+
+# Supervisor View
