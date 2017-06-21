@@ -57,8 +57,8 @@ PRIMARY KEY (item_id)
 
 # Running the Application
 
-# Customer View
+## Customer View
 
-# Manager View
+## Manager View
 
-# Supervisor View
+## Supervisor View
