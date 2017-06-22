@@ -22,7 +22,10 @@ A CLI based application using Node.js and MySQL integration to simulate Amazon l
   * [Customer View](#customer-view)
   * [Manager View](#manager-view)
   * [Supervisor View](#supervisor-view)
-  
+
+## Usage
+Application requires setting up node.js and MySQL. Details of node and MySQL installation have been given in the sections below.
+
 ## Setting up Node
 Following steps will help to get this project up and running in your local system
 1. Install Node in your system using the link given below 
