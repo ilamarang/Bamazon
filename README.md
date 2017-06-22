@@ -61,6 +61,7 @@ PRIMARY KEY (item_id)
 
 ## Customer View
 1. Run the following command
+
 `node bamazonCustomer.js`
 
 
