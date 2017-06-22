@@ -82,5 +82,27 @@ The application will display the list of all Products available from the 'produc
 
 
 ## Manager View
+1. Run the following command
+
+`node bamazonManager.js`
+The application will display a list of Menu items for the Manager selection as displayed below.
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/ManagerView_InitialInquiry.png) 
+
+2. View Products Menu will display all the menu items in the products table.
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/ManagerView_ViewProducts.png)
+
+3. View Low Inventory option will display the list of items that are low in inventory (<=100)
+
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/ManagerView_LowInventory.png)
+
+4. Add Inventory menu helps to add inventory to the daabase.
+
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/ManagerView_AddInventory.png)
+
+5. Add Products Menu helps in adding a new product in the database.
+
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/ManagerView_AddProduct.png)
+
+
 
 ## Supervisor View
