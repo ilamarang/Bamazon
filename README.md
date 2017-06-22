@@ -106,3 +106,16 @@ The application will display a list of Menu items for the Manager selection as d
 
 
 ## Supervisor View
+1. Run the following command
+
+`node bamazonSupervisor.js`
+The application will display a list of Menu items for the Supervisor selection as displayed below.
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Supervisor_Menu.png) 
+
+2. View Product Sales by Department option displays the sale by each department.
+
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Supervisor_DepartmentView.png)
+
+3. Create new department menu helps to create a new department.
+
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Supervisor_AddNew_Department.png)
