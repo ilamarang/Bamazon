@@ -66,21 +66,19 @@ PRIMARY KEY (item_id)
 The application will display the list of all Products available from the 'products' table and inquire the user if he wishes to Puchase any Product
 ![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Bamazon_Customer_Initial_View.png)
 
-Application will quit if the user selects 'No'
+2. Application will quit if the user selects 'No'
 
-On selecting 'Yes', application will inquire the Product Name. User can provide a partial name of the product. For instance, in the screen shot given below, user wishes to purchase diapers and he has entered partial key word 'dia'
+3. On selecting 'Yes', application will inquire the Product Name. User can provide a partial name of the product. For instance, in the screen shot given below, user wishes to purchase diapers and he has entered partial key word 'dia'
 
 ![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Bamazon_Customer_InquireProductName.png)
 
-System will inquire the product count as indicated in the screen shot below 
+4. System will inquire the product count as indicated in the screen shot below 
 
 ![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Bamazon_Customer_InquireProductCount.png)
 
-Once confirmed, a receipt will be generated and the inventory updated in the Database. The updated inventory details will be displayed to the user.
+5. Once confirmed, a receipt will be generated and the inventory updated in the Database. The updated inventory details will be displayed to the user.
 
 ![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Bamazon_Customer_Receipt.png)
-
-
 
 
 ## Manager View
