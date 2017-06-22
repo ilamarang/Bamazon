@@ -31,6 +31,7 @@ https://coderwall.com/p/mhd6nw/install-node-js-on-mac-os-x-and-windows
  
     `git clone https://github.com/ilamarang/Bamazon.git`
 3. Change your current directory to Bamazon and run the following command
+
   	`npm install`
                
 ## Setting up MySQL
