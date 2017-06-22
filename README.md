@@ -63,7 +63,10 @@ PRIMARY KEY (item_id)
 1. Run the following command
 
 `node bamazonCustomer.js`
+The application will display the list of all Products available from the 'products' table and inquire the user if he wishes to Puchase any Product
+[1 Pic here]
 
+Application will quit if the user selects 'No'
 
 ## Manager View
 
