@@ -60,6 +60,9 @@ PRIMARY KEY (item_id)
 # Running the Application
 
 ## Customer View
+1. Run the following command
+`node bamazonCustomer.js`
+
 
 ## Manager View
 
