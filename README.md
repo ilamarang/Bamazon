@@ -22,7 +22,10 @@ A CLI based application using Node.js and MySQL integration to simulate Amazon l
   * [Customer View](#customer-view)
   * [Manager View](#manager-view)
   * [Supervisor View](#supervisor-view)
-  
+
+## Usage
+Application requires setting up node.js and MySQL. Details of node and MySQL installation have been given in the sections below.
+
 ## Setting up Node
 Following steps will help to get this project up and running in your local system
 1. Install Node in your system using the link given below 
@@ -89,6 +92,7 @@ The application will display a list of Menu items for the Manager selection as d
 ![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/ManagerView_InitialInquiry.png) 
 
 2. View Products Menu will display all the menu items in the products table.
+
 ![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/ManagerView_ViewProducts.png)
 
 3. View Low Inventory option will display the list of items that are low in inventory (<=100)
@@ -104,5 +108,17 @@ The application will display a list of Menu items for the Manager selection as d
 ![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/ManagerView_AddProduct.png)
 
 
-
 ## Supervisor View
+1. Run the following command
+
+`node bamazonSupervisor.js`
+The application will display a list of Menu items for the Supervisor selection as displayed below.
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Supervisor_Menu.png) 
+
+2. View Product Sales by Department option displays the sale by each department.
+
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Supervisor_DepartmentView.png)
+
+3. Create new department menu helps to create a new department.
+
+![alt text](https://github.com/ilamarang/Bamazon/blob/master/images/Supervisor_AddNew_Department.png)
